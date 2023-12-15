@@ -1,0 +1,22 @@
+.topoCrud {
+   background-color: #dddddd;
+   padding: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.btnDeslogar {
+   position: absolute;
+   cursor: pointer;
+   border: none;
+   background-color: #ad0000;
+   color: white;
+   padding: 10px;
+   right: 50px;
+}
+
+.nomeHeader {
+   color: black;
+   font-size: 22px;
+}
