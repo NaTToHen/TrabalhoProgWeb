@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
     public function auth(Request $request) {
-        if(Auth::attempt(['user' => $request->user, 'password' => $request->password])) {
+        if(Auth::attempt(['name' => $request->user, 'password' => $request->password])) {
             $user = Auth::user();
             $token = $user->createToken('JWT');
 

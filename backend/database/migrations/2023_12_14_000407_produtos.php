@@ -11,9 +11,11 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descricao');
+            $table->text('descricao');
             $table->float('valor');
             $table->string('path_foto');
+            $table->unsignedBigInteger('fk_fornecedora');
+            $table->foreign('fk_fornecedora')->references('id')->on('fornecedoras');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 .topoCrud {
    background-color: #dddddd;
    padding: 20px;
+   max-height: 60px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -10,10 +11,12 @@
    position: absolute;
    cursor: pointer;
    border: none;
+   font-size: 16px;
    background-color: #ad0000;
    color: white;
-   padding: 10px;
-   right: 50px;
+   padding: 10px 20px;
+   height: 60px;
+   right: 0;
 }
 
 .nomeHeader {
