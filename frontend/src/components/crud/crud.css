@@ -23,3 +23,44 @@
    color: black;
    font-size: 22px;
 }
+
+/*----------------------- READ -----------------------*/
+
+.tabelaProdutos {
+   margin: auto;
+   text-align: start;
+   width: 65%;
+   height: 100%;
+   margin-top: 100px;
+}
+
+th, td {
+   text-align: start;
+   padding: 15px;
+   max-width: 200px;
+   border: none;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+tr:hover {
+   background: #888888;
+}
+
+th {
+   background: #0051ad;
+   color: white;
+}
+
+.itemProduto {
+   cursor: pointer;
+   margin-bottom: 20px;
+   width: 100%;
+   padding: 12px;
+   background: #dddddd;
+}
+
+.itemProduto h1 {
+   font-size: 18px;
+}

@@ -13,7 +13,6 @@ return new class extends Migration
             $table->string('nome');
             $table->text('descricao');
             $table->float('valor');
-            $table->string('path_foto');
             $table->unsignedBigInteger('fk_fornecedora');
             $table->foreign('fk_fornecedora')->references('id')->on('fornecedoras');
             $table->timestamps();
