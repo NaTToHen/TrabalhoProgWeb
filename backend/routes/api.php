@@ -11,5 +11,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [LoginController::class, 'auth'])->name("login");
 
 Route::prefix('crud')->group(function() {
-    Route::get('/read', [CrudController::class,'read'])->name("read");
+    Route::get('/read', [CrudController::class, 'read']);
+
+    Route::get('/fornecedoras', [CrudController::class, 'fornecedoras']);
+    Route::post('/create', [CrudController::class, 'create']);
 });
