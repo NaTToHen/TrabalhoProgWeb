@@ -51,8 +51,7 @@
    margin-top: 100px;
 }
 
-th,
-td {
+th, td {
    text-align: start;
    padding: 15px;
    max-width: 200px;

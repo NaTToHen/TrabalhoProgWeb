@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom'
+
 function Produto(props) {
+
    return(
-      <tr className="itemProduto">
-         <td>{props.id}</td>
+      <tr className="itemProduto" onClick={() => window.location.href = `/produto/${props.id}`}>
+         <td id={props.id}>{props.id}</td>
          <td>{props.nome}</td>
          <td className="descItem">{props.descricao}</td>
          <td>{props.fornecedora}</td>

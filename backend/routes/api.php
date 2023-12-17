@@ -15,4 +15,6 @@ Route::prefix('crud')->group(function() {
 
     Route::get('/fornecedoras', [CrudController::class, 'fornecedoras']);
     Route::post('/create', [CrudController::class, 'create']);
+
+    Route::get('/produto/{id}', [CrudController::class, 'produto']);
 });

@@ -1,0 +1,75 @@
+.containerProduto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+  gap: 50px;
+}
+
+.acoes {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #dddddd;
+}
+
+button {
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.btnEditar {
+  background: #ad9c00;
+}
+
+.btnExcluir {
+  background: #ad0000;
+}
+
+.fundoModal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000005e;
+}
+
+.container {
+  width: 45%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+h1 {
+  color: #ad0000;
+  font-size: 25px;
+}
+
+.acoesModal {
+  display: flex;
+  gap: 20px;
+}
+
+.btnCancelar {
+  background: #8d8d8d;
+}
+
+.btnConfirmar {
+  background: #ad0000;
+}

@@ -1,5 +1,5 @@
 import Header from "./Header.js";
-import Modal from "./Modal.js";
+import ModalAdd from "./ModalAdd.js";
 import Produto from './Produto.js'
 
 import React, { useState, useEffect } from 'react'
@@ -9,12 +9,8 @@ function Read() {
    var token = localStorage.getItem('token')
 
    const [data, setData] = useState([])
-   const [modal, setModal] = useState(false)
+   const [openAdd, setOpenAdd] = useState(false)
    const [msg, setMsg] = useState(null);
-
-   const toggleModal = () => {
-      setModal(!modal)
-   }
 
    if (!token) window.location.href = '/'
 
@@ -27,21 +23,21 @@ function Read() {
             return error
          })
 
-      const msgModal = localStorage.getItem('msg');
+      const msgModal = localStorage.getItem('msg')
 
       if (msgModal) {
-         setMsg(msgModal);
-         localStorage.removeItem('msg');
+         setMsg(msgModal)
+         localStorage.removeItem('msg')
       }
    }, [])
 
    useEffect(() => {
       const timer = setTimeout(() => {
-         setMsg(null);
-      }, 5000);
+         setMsg(null)
+      }, 5000)
 
-      return () => clearTimeout(timer);
-   }, [msg]);
+      return () => clearTimeout(timer)
+   }, [msg])
 
    return (
       <>
@@ -49,13 +45,13 @@ function Read() {
             nome="Produtos cadastrados"
          />
 
-         {modal && <Modal ativo={modal} />}
-
          {msg === 'Erro ao cadastrar produto' && <div className="msgErro">{msg}</div>}
          {msg === 'Produto cadastrado com sucesso' && <div className="msgSucesso">{msg}</div>}
 
+         <ModalAdd isOpen={openAdd} setOpenAdd={setOpenAdd}/>
+
          <main className="container">
-            <button className="btnCriar" onClick={toggleModal}>Criar Produto</button>
+            <button className="btnCriar" onClick={() => setOpenAdd(!openAdd)}>Criar Produto</button>
 
             <table className='tabelaProdutos' cellspacing="0" cellpadding="0">
                <tr>
@@ -79,7 +75,6 @@ function Read() {
             </table>
          </main>
       </>
-
    )
 }
 

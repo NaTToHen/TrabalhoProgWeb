@@ -22,7 +22,7 @@ class CrudController extends Controller
         $product->fk_fornecedora = $request->fornecedora;
         $product->valor = $request->valor;
         $product->save();
-        
+
         if ($product->save()) {
             return response()->json("Produto cadastrado com sucesso");
         } else {
@@ -34,5 +34,11 @@ class CrudController extends Controller
     {
         $dados = Fornecedora::all();
         return response()->json($dados, 200, [], JSON_UNESCAPED_UNICODE);
+    }
+
+    function produto($id)
+    {
+        $produto = Produto::find($id);
+        return response()->json($produto, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }
