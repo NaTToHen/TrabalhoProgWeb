@@ -17,4 +17,5 @@ Route::prefix('crud')->group(function() {
     Route::post('/create', [CrudController::class, 'create']);
 
     Route::get('/produto/{id}', [CrudController::class, 'produto']);
+    Route::post('/produto/{id}/delete', [CrudController::class, 'delete']);
 });

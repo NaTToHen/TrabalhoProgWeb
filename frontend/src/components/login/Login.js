@@ -44,7 +44,7 @@ function Login() {
    return (
       <div className="loginContainer">
 
-         {error && <div className='msgErro'>{error}</div>}
+         {error && <div className='msgErroLogin'>{error}</div>}
 
          <h1 className="tituloLogin">Login</h1>
          <form className="formLogin" onSubmit={handleSubmit}>
@@ -61,7 +61,7 @@ function Login() {
                type="password"
                onChange={handleInput} />
 
-            <button type="submit" className="btnForm">Efetuar Login</button>
+            <button type="submit" className="btnFormLogin">Efetuar Login</button>
          </form>
       </div>
    )

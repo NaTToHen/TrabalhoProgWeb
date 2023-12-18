@@ -2,6 +2,8 @@ import Header from "./Header.js";
 import ModalAdd from "./ModalAdd.js";
 import Produto from './Produto.js'
 
+import './crud.css'
+
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 

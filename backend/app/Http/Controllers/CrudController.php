@@ -30,6 +30,12 @@ class CrudController extends Controller
         }
     }
 
+    function delete($id) {
+        $product = Produto::find($id);
+        $product->delete();
+        return response()->json("sucesso");
+    }
+
     function fornecedoras()
     {
         $dados = Fornecedora::all();

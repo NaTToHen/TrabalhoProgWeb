@@ -34,7 +34,7 @@
    outline: 1px solid #555;
  }
 
-.btnForm {
+.btnFormLogin {
    padding: 8px;
    cursor: pointer;
    border: none;
@@ -42,11 +42,11 @@
    width: 100%;
 }
 
-.btnForm:hover {
+.btnFormLogin:hover {
    outline: 1px solid #555;
 }
 
-.msgErro {
+.msgErroLogin {
    position: absolute;
    top: 0;
    background: #ad0000;

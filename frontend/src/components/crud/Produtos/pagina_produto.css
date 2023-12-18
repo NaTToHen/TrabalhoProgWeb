@@ -16,7 +16,7 @@
   background: #dddddd;
 }
 
-button {
+.containerProduto .acoes button {
   border: none;
   font-weight: bold;
   font-size: 20px;
@@ -45,7 +45,7 @@ button {
   background: #0000005e;
 }
 
-.container {
+.containerDelete {
   width: 45%;
   height: 40%;
   display: flex;
@@ -56,7 +56,7 @@ button {
   background: white;
 }
 
-h1 {
+.containerProduto h1 {
   color: #ad0000;
   font-size: 25px;
 }
@@ -66,10 +66,37 @@ h1 {
   gap: 20px;
 }
 
+.h1Delete {
+  width: 90%;
+  font-size: 23px;
+  text-align: center;
+}
+
+.acoesModal button {
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+}
+
 .btnCancelar {
   background: #8d8d8d;
 }
 
 .btnConfirmar {
   background: #ad0000;
+}
+
+.btnFormEdit {
+  border: none;
+   cursor: pointer;
+   background: #ad9c00;
+   width: 50%;
+   color: white;
+   padding: 12px;
+   margin-top: 30px;
+   font-size: 18px;
+   font-weight: bold;
 }
