@@ -7,8 +7,13 @@
    justify-content: center;
 }
 
-.btnDeslogar {
+.acoesHeader {
    position: absolute;
+   display: flex;
+   right: 0;
+}
+
+.btnDeslogar {
    cursor: pointer;
    border: none;
    font-size: 16px;
@@ -16,7 +21,16 @@
    color: white;
    padding: 10px 20px;
    height: 60px;
-   right: 0;
+}
+
+.btnHome {
+   cursor: pointer;
+   border: none;
+   font-size: 16px;
+   background-color: #0051ad;
+   color: white;
+   padding: 10px 20px;
+   height: 60px;
 }
 
 .nomeHeader {
@@ -51,7 +65,8 @@
    margin-top: 100px;
 }
 
-th, td {
+th,
+td {
    text-align: start;
    padding: 15px;
    max-width: 200px;
@@ -80,6 +95,13 @@ th {
 
 .itemProduto h1 {
    font-size: 18px;
+}
+
+.valorTotal {
+   float: right;
+   padding: 15px;
+   background: #0051ad;
+   color: white;
 }
 
 /*----------------------- MODAL ADD PRODUTO -----------------------*/
@@ -124,7 +146,8 @@ th {
    height: 100%;
 }
 
-.formModal input, select {
+.formModal input,
+select {
    width: 50%;
    border: none;
    padding: 8px;
@@ -135,9 +158,9 @@ th {
 
 .formModal input:focus {
    outline: 1px solid #555;
- }
+}
 
- .btnFormModal {
+.btnFormModal {
    border: none;
    cursor: pointer;
    background: #00ad2b;
@@ -147,7 +170,7 @@ th {
    margin-top: 30px;
    font-size: 18px;
    font-weight: bold;
- }
+}
 
 /*----------------------- MENSAGENS -----------------------*/
 

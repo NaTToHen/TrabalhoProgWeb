@@ -12,10 +12,11 @@ Route::post('/login', [LoginController::class, 'auth'])->name("login");
 
 Route::prefix('crud')->group(function() {
     Route::get('/read', [CrudController::class, 'read']);
+    Route::post('/create', [CrudController::class, 'create']);
+    Route::post('/produto/{id}/delete', [CrudController::class, 'delete']);
+    Route::post('/produto/{id}/edit', [CrudController::class, 'edit']);
 
     Route::get('/fornecedoras', [CrudController::class, 'fornecedoras']);
-    Route::post('/create', [CrudController::class, 'create']);
-
     Route::get('/produto/{id}', [CrudController::class, 'produto']);
-    Route::post('/produto/{id}/delete', [CrudController::class, 'delete']);
+    Route::get('/valortotal', [CrudController::class, 'valorTotal']);
 });

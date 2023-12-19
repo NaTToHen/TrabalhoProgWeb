@@ -13,6 +13,7 @@ function Read() {
    const [data, setData] = useState([])
    const [openAdd, setOpenAdd] = useState(false)
    const [msg, setMsg] = useState(null);
+   const [valorTotal, setValorTotal] = useState([])
 
    if (!token) window.location.href = '/'
 
@@ -24,6 +25,12 @@ function Read() {
          .catch(error => {
             return error
          })
+
+      axios.get('http://localhost:8000/api/crud/valortotal')
+      .then(response => {
+         setValorTotal(response.data)
+         console.log(valorTotal)
+      })
 
       const msgModal = localStorage.getItem('msg')
 
@@ -49,6 +56,10 @@ function Read() {
 
          {msg === 'Erro ao cadastrar produto' && <div className="msgErro">{msg}</div>}
          {msg === 'Produto cadastrado com sucesso' && <div className="msgSucesso">{msg}</div>}
+         {msg === 'Erro ao editar produto' && <div className="msgErro">{msg}</div>}
+         {msg === 'Produto editado com sucesso' && <div className="msgSucesso">{msg}</div>}
+         {msg === 'Erro ao excluir produto' && <div className="msgErro">{msg}</div>}
+         {msg === 'Produto excluido com sucesso' && <div className="msgSucesso">{msg}</div>}
 
          <ModalAdd isOpen={openAdd} setOpenAdd={setOpenAdd}/>
 
@@ -75,6 +86,7 @@ function Read() {
                   )
                })}
             </table>
+            <p className="valorTotal"><strong>ValorTotal:</strong> R$ {valorTotal.map(data => {return data.valorTotal})}</p>
          </main>
       </>
    )

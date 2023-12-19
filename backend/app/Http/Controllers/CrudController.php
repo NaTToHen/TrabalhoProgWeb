@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use App\Models\Fornecedora;
+use App\Models\Valortotal;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class CrudController extends Controller
@@ -16,23 +18,59 @@ class CrudController extends Controller
 
     function create(Request $request)
     {
-        $product = new Produto;
-        $product->nome = $request->nome;
-        $product->descricao = $request->descricao;
-        $product->fk_fornecedora = $request->fornecedora;
-        $product->valor = $request->valor;
-        $product->save();
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required|numeric',
+            'fornecedora' => 'required|numeric'
+        ]);
 
-        if ($product->save()) {
-            return response()->json("Produto cadastrado com sucesso");
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 500, [], JSON_UNESCAPED_UNICODE);
         } else {
-            return response()->json("Erro ao cadastrar produto");
+            $produto = new Produto;
+            $produto->nome = $request->nome;
+            $produto->descricao = $request->descricao;
+            $produto->fk_fornecedora = $request->fornecedora;
+            $produto->valor = $request->valor;
+            $produto->save();
+
+            if ($produto->save()) {
+                return response()->json("Produto cadastrado com sucesso");
+            } else {
+                return response()->json("Erro ao cadastrar produto");
+            }
         }
     }
 
-    function delete($id) {
-        $product = Produto::find($id);
-        $product->delete();
+    function edit($id, Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required|numeric',
+            'fornecedora' => 'required|numeric'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 500, [], JSON_UNESCAPED_UNICODE);
+        } else {
+            $produto = Produto::find($id);
+            $produto->nome = $request->nome;
+            $produto->descricao = $request->descricao;
+            $produto->valor = $request->valor;
+            $produto->fk_fornecedora = $request->fornecedora;
+
+            $produto->save();
+
+            return response()->json("cadastrado", 200, [], JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+    function delete($id)
+    {
+        $produto = Produto::find($id);
+        $produto->delete();
         return response()->json("sucesso");
     }
 
@@ -46,5 +84,10 @@ class CrudController extends Controller
     {
         $produto = Produto::find($id);
         return response()->json($produto, 200, [], JSON_UNESCAPED_UNICODE);
+    }
+
+    function valorTotal() {
+        $valorTotal = Valortotal::all();
+        return $valorTotal;
     }
 }

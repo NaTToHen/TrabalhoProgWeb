@@ -11,7 +11,13 @@ function ModalDelete({ isOpen, setOpen, nome, id }) {
          'Authorization': `Bearer ${token}`
       }
    })
-    .then((res) => window.location.href = "/read")
+   .then(() => {
+    localStorage.setItem('msg', "Produto excluido com sucesso")
+    window.location.href = '/read'
+  }).catch(() => {
+    localStorage.setItem('msg', "Erro ao excluir produto")
+    window.location.href = '/read'
+  })
   }
 
   if (isOpen) {
