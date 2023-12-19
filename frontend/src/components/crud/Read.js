@@ -86,7 +86,11 @@ function Read() {
                   )
                })}
             </table>
-            <p className="valorTotal"><strong>ValorTotal:</strong> R$ {valorTotal.map(data => {return data.valorTotal})}</p>
+            <p className="valorTotal"><strong>ValorTotal:</strong> R$ {valorTotal.map(data => {
+                  var valor = data.valorTotal
+                  var valorFinal = valor.toFixed(2)
+                  return valorFinal
+               })}</p>
          </main>
       </>
    )
