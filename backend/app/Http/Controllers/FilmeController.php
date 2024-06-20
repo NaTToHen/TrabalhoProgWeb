@@ -11,7 +11,7 @@ class FilmeController extends Controller
 {
     public function read()
     {
-        $dados = filme::all();
+        $dados = filme::from('lista_filmes')->get();
         return response()->json($dados, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
@@ -24,20 +24,29 @@ class FilmeController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nome' => 'required',
-            'descricao' => 'required',
+            'titulo' => 'required',
+            'sinopse' => 'required',
+            'ano' => 'required',
+            'duracao' => 'required',
+            'idioma' => 'required',
+            'categoria' => 'required'
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 500, [], JSON_UNESCAPED_UNICODE);
         } else {
             $filme = new filme;
-            $filme->nome = $request->nome;
-            $filme->descricao = $request->descricao;
+            $filme->titulo = $request->titulo;
+            $filme->sinopse = $request->sinopse;
+            $filme->ano = $request->ano;
+            $filme->duracao = $request->duracao;
+            $filme->idioma = $request->idioma;
+            $filme->id_categoria = $request->categoria;
+
             $filme->save();
 
             if ($filme->save()) {
-                return response()->json("filme cadastrada com sucesso");
+                return response()->json("Filme cadastrada com sucesso");
             } else {
                 return response()->json("Erro ao cadastrar filme");
             }
@@ -48,19 +57,28 @@ class FilmeController extends Controller
     public function edit($id, Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nome' => 'required',
-            'descricao' => 'required'
+            'titulo' => 'required',
+            'sinopse' => 'required',
+            'ano' => 'required',
+            'duracao' => 'required',
+            'idioma' => 'required',
+            'categoria' => 'required'
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 500, [], JSON_UNESCAPED_UNICODE);
         } else {
             $filme = filme::find($id);
-            $filme->nome = $request->nome;
-            $filme->descricao = $request->descricao;
+            $filme->titulo = $request->titulo;
+            $filme->sinopse = $request->sinopse;
+            $filme->ano = $request->ano;
+            $filme->duracao = $request->duracao;
+            $filme->idioma = $request->idioma;
+            $filme->id_categoria = $request->categoria;
+
             $filme->save();
 
-            return response()->json("filme editada com sucesso", 200, [], JSON_UNESCAPED_UNICODE);
+            return response()->json("Filme editada com sucesso", 200, [], JSON_UNESCAPED_UNICODE);
         }
     }
 

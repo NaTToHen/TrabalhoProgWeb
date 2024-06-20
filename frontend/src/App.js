@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Login from './components/login/Login.js';
 import Read from './components/crud/Read.js';
-import PaginaProduto from './components/crud/Produtos/PaginaProduto.js';
+import PaginaFilme from './components/crud/Produtos/PaginaFilme.js';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/read" element={<Read />} />
-        <Route path="/produto/:id" element={<PaginaProduto />} />
+        <Route path="/filme/:id" element={<PaginaFilme />} />
       </Routes>
     </Router>
   )
