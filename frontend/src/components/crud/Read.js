@@ -12,14 +12,18 @@ import './crud.css'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ModalAddCategoria from "./Categorias/ModalAddCategoria.js";
+import { useNavigate } from "react-router-dom";
 
 function Read() {
   var token = localStorage.getItem('token')
 
+  const navigate = useNavigate()
   const [data, setData] = useState({ filmes: [], categorias: [] })
   const [addFilme, setAddFilme] = useState(false)
   const [addCategoria, setAddCategoria] = useState(false)
   const [msg, setMsg] = useState(null);
+
+  if (!token) navigate('/')
 
   useEffect(() => {
     const msgModal = localStorage.getItem('msg')

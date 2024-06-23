@@ -19,7 +19,7 @@ function PaginaCategoria() {
 
   var token = localStorage.getItem('token')
 
-  // if (!token) window.location.href = '/'
+  if (!token) navigate('/')
 
   const [categoriaData, setCategoriaData] = useState({
 		'nome': '',

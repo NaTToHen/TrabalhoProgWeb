@@ -20,7 +20,7 @@ function PaginaFilme() {
 
   var token = localStorage.getItem('token')
 
-  // if (!token) window.location.href = '/'
+  if (!token) navigate('/')
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/crud/filmes/${id}`)
