@@ -1,9 +1,8 @@
 import axios from "axios"
-import Modal from "react-bootstrap/Modal"
-import Button from "react-bootstrap/Button"
 import { useNavigate } from "react-router-dom"
+import ModalDelete from "../ModalDelete"
 
-function ModalDeleteFilme({ show, onHide, nome, id }) {
+function ModalDeleteFilme({ show, onHide, id }) {
 
   var token = localStorage.getItem('token')
   const navigate = useNavigate()
@@ -24,20 +23,9 @@ function ModalDeleteFilme({ show, onHide, nome, id }) {
   }
 
   return (
-    <Modal show={show} onHide={onHide}>
-      <Modal.Header closeButton>
-        <Modal.Title>Excluir filme</Modal.Title>
-      </Modal.Header>
-
-      <Modal.Body>
-        <p>Tem certeza que deseja excluir o filme?</p>
-      </Modal.Body>
-
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>Fechar</Button>
-        <Button variant="danger" onClick={handleDelete}>Excluir</Button>
-      </Modal.Footer>
-    </Modal>
+    <ModalDelete onClose={onHide} onConfirm={handleDelete} show={show} title={"Excluir filme"}>
+      <p>Tem certeza que deseja excluir o filme?</p>
+    </ModalDelete>
   )
 }
 
