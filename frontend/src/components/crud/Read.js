@@ -20,7 +20,6 @@ function Read() {
   const [addFilme, setAddFilme] = useState(false)
   const [addCategoria, setAddCategoria] = useState(false)
   const [msg, setMsg] = useState(null);
-  const [valorTotal, setValorTotal] = useState([])
 
   useEffect(() => {
     const msgModal = localStorage.getItem('msg')
@@ -84,6 +83,8 @@ function Read() {
             </tr>
           </thead>
         )
+      default:
+        return <></>
     }
   }
 
@@ -94,15 +95,24 @@ function Read() {
       case 'categorias':
         return <Categoria key={props.id} {...props} />
       default:
-        return false
+        return <></>
     }
+  }
+
+  const renderTable = (tab, data) => {
+    return (<Table striped bordered hover>
+      {renderTableHeader(tab)}
+      <tbody>
+        {!!data[tab] && data[tab].map(data => {
+          return renderDataRow(tab, data)
+        })}
+      </tbody>
+    </Table>)
   }
 
   return (
     <>
-      <Header
-        nome="Catálogo"
-      />
+      <Header nome="Catálogo" />
 
       {msg === 'Erro ao cadastrar filme' && <div className="msgErro">{msg}</div>}
       {msg === 'filme cadastrado com sucesso' && <div className="msgSucesso">{msg}</div>}
@@ -113,28 +123,14 @@ function Read() {
 
       <main className="container">
 
-        <Tabs defaultActiveKey={"filmes"} onSelect={(activeKey) => setTab(activeKey)} id="uncontrolled-tab-example" className="mb-3">
+        <Tabs defaultActiveKey={"filmes"} onSelect={(activeKey) => setTab(activeKey)} className="mb-3">
           <Tab eventKey="filmes" title="Filmes">
-            <Table striped bordered hover>
-              {renderTableHeader(tab)}
-              <tbody>
-                {!!data[tab] && data[tab].map(data => {
-                  return renderDataRow(tab, data)
-                })}
-              </tbody>
-            </Table>
+            {renderTable(tab, data)}
             <ModalAddFilme show={addFilme} onHide={() => setAddFilme(false)} />
             <Button size="lg" variant="primary" onClick={() => setAddFilme(true)} style={{ float: "right" }}>Adicionar</Button>
           </Tab>
           <Tab eventKey="categorias" title="Categorias">
-            <Table striped bordered hover>
-              {renderTableHeader(tab)}
-              <tbody>
-                {!!data[tab] && data[tab].map(data => {
-                  return renderDataRow(tab, data)
-                })}
-              </tbody>
-            </Table>
+            {renderTable(tab, data)}
             <ModalAddCategoria show={addCategoria} onHide={() => setAddCategoria(false)} />
             <Button size="lg" variant="primary" onClick={() => setAddCategoria(true)} style={{ float: "right" }}>Adicionar</Button>
           </Tab>
