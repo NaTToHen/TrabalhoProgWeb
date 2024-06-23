@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import ModalDeleteCategoria from './ModalDeleteCategoria.js'
 
-import './pagina_produto.css'
+import '../pagina_produto.css'
 
 function PaginaCategoria() {
 

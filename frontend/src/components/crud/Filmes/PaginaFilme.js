@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Header from '../Header.js'
 import ModalDeleteFilme from './ModalDeleteFilme.js'
-import FormEdit from './FormEdit.js'
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
-import './pagina_produto.css'
+import '../pagina_produto.css'
 
 function PaginaFilme() {
 

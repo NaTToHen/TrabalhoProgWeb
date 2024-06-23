@@ -1,7 +1,7 @@
 import Header from "./Header.js";
-import ModalAddFilme from "./ModalAddFilme.js";
-import Filme from './Filme.js'
-import Categoria from "./Categoria.js";
+import ModalAddFilme from "./Filmes/ModalAddFilme.js";
+import Filme from './Filmes/Filme.js'
+import Categoria from "./Categorias/Categoria.js";
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
 import Table from "react-bootstrap/Table"
@@ -11,7 +11,7 @@ import './crud.css'
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ModalAddCategoria from "./ModalAddCategoria.js";
+import ModalAddCategoria from "./Categorias/ModalAddCategoria.js";
 
 function Read() {
   var token = localStorage.getItem('token')

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Login from './components/login/Login.js';
 import Read from './components/crud/Read.js';
-import PaginaFilme from './components/crud/Produtos/PaginaFilme.js';
-import PaginaCategoria from './components/crud/Produtos/PaginaCategoria.js';
+import PaginaFilme from './components/crud/Filmes/PaginaFilme.js';
+import PaginaCategoria from './components/crud/Categorias/PaginaCategoria.js';
 
 function App() {
   return (
