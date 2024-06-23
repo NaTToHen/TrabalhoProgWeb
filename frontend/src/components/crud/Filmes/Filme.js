@@ -5,7 +5,7 @@ function Filme(props) {
   const navigate = useNavigate()
 
   return (
-    <tr onClick={() => navigate(`/filme/${props.id}`)}>
+    <tr style={{cursor: "pointer"}} onClick={() => navigate(`/filme/${props.id}`)}>
       <td>{props.id}</td>
       <td>{props.titulo}</td>
       <td>{props.sinopse}</td>
