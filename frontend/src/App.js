@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/login/Login.js';
 import Read from './components/crud/Read.js';
 import PaginaFilme from './components/crud/Produtos/PaginaFilme.js';
+import PaginaCategoria from './components/crud/Produtos/PaginaCategoria.js';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/read" element={<Read />} />
         <Route path="/filme/:id" element={<PaginaFilme />} />
+        <Route path="/categoria/:id" element={<PaginaCategoria />} />
       </Routes>
     </Router>
   )
