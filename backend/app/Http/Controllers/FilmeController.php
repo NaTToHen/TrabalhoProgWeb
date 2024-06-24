@@ -62,7 +62,7 @@ class FilmeController extends Controller
             'ano' => 'required',
             'duracao' => 'required',
             'idioma' => 'required',
-            'categoria' => 'required'
+            'id_categoria' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -74,11 +74,11 @@ class FilmeController extends Controller
             $filme->ano = $request->ano;
             $filme->duracao = $request->duracao;
             $filme->idioma = $request->idioma;
-            $filme->id_categoria = $request->categoria;
+            $filme->id_categoria = $request->id_categoria;
 
             $filme->save();
 
-            return response()->json("Filme editada com sucesso", 200, [], JSON_UNESCAPED_UNICODE);
+            return response()->json("Filme editada com sucesso", 201, [], JSON_UNESCAPED_UNICODE);
         }
     }
 

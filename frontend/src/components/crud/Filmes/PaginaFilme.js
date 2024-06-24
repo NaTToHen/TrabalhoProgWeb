@@ -12,7 +12,7 @@ import '../pagina_produto.css'
 function PaginaFilme() {
 
   const [categorias, setCategorias] = useState([])
-	const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const { id } = useParams()
   const [open, setOpen] = useState(false)
@@ -28,43 +28,43 @@ function PaginaFilme() {
   }, [])
 
   const [filmeData, setFilmeData] = useState({
-		'titulo': '',
-		'sinopse': '',
-		'idioma': '',
-		'categoria': 0,
-		'ano': 0
-	})
+    'titulo': '',
+    'sinopse': '',
+    'idioma': '',
+    'id_categoria': 0,
+    'ano': 0
+  })
 
-	const handleInput = (event) => {
-		setFilmeData((prevData) => ({
-			...prevData,
-			[event.target.name]: ["categoria", "ano"].includes(event.target.name) ? Number(event.target.value) : event.target.value
-		}))
-	}
+  const handleInput = (event) => {
+    setFilmeData((prevData) => ({
+      ...prevData,
+      [event.target.name]: ["id_categoria", "ano"].includes(event.target.name) ? Number(event.target.value) : event.target.value
+    }))
+  }
 
-	function handleSave(event) {
-		event.preventDefault()
-		axios.put('http://localhost:8000/api/crud/filme', filmeData, {
-		})
-			.then(() => {
-				localStorage.setItem('msg', "Filme editado com sucesso")
-				navigate('/read')
+  function handleSave(event) {
+    event.preventDefault()
+    axios.post(`http://localhost:8000/api/crud/filmes/edit/${id}`, filmeData, {
+    })
+      .then(() => {
+        localStorage.setItem('msg', "Filme editado com sucesso")
+        navigate('/read')
         setIsEditing(false)
-			}).catch(() => {
-				localStorage.setItem('msg', "Erro ao editar filme")
-				navigate('/read')
-			})
-	}
+      }).catch(() => {
+        localStorage.setItem('msg', "Erro ao editar filme")
+        navigate('/read')
+      })
+  }
 
   useEffect(() => {
     if (isEditing) {
       axios.get('http://localhost:8000/api/crud/categorias')
-			.then(response => {
-				setCategorias(response.data)
-			})
-			.catch(error => {
-				return error
-			})
+        .then(response => {
+          setCategorias(response.data)
+        })
+        .catch(error => {
+          return error
+        })
     }
 
   }, [isEditing])
@@ -111,9 +111,9 @@ function PaginaFilme() {
             <Form.Label>Idioma</Form.Label>
             <Form.Control as="input" type="text" name="idioma" value={filmeData.idioma} disabled={!isEditing} required onChange={handleInput} />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="categoria">
+          <Form.Group className="mb-3" controlId="id_categoria">
             <Form.Label>Categoria</Form.Label>
-            <Form.Select aria-label="Default select example" name="categoria" defaultValue={filmeData.categoria} onChange={handleInput} disabled={!isEditing}>
+            <Form.Select aria-label="Default select example" name="id_categoria" defaultValue={filmeData.categoria} onChange={handleInput} disabled={!isEditing}>
               <option>Abri menu de seleção</option>
               {categorias.map(categoria => (
                 <option key={categoria.id} value={categoria.id}>
@@ -128,8 +128,8 @@ function PaginaFilme() {
           </Form.Group>
         </Form>
         {isEditing && (
-            <Button variant="primary" size="lg" type="submit" form="editForm" onClick={handleSave} style={{alignSelf: "flex-end"}}>Salvar</Button>
-          )
+          <Button variant="primary" size="lg" type="submit" form="editForm" onClick={handleSave} style={{ alignSelf: "flex-end" }}>Salvar</Button>
+        )
         }
 
       </main>

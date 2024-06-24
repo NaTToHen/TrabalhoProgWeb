@@ -14,16 +14,9 @@ Route::post('/login', [LoginController::class, 'auth'])->name("login");
 
 Route::prefix('crud')->group(function() {
     Route::get('/read', [CrudController::class, 'read']);
-    Route::post('/create', [CrudController::class, 'create']);
-    Route::post('/produto/{id}/delete', [CrudController::class, 'delete']);
-    Route::post('/produto/{id}/edit', [CrudController::class, 'edit']);
-
-    Route::get('/fornecedoras', [CrudController::class, 'fornecedoras']);
-    Route::get('/produto/{id}', [CrudController::class, 'produto']);
-    Route::get('/valortotal', [CrudController::class, 'valorTotal']);
 
     Route::get('/categorias', [CategoriaController::class, 'read']);
-    Route::post('/categorias', [CategoriaController::class, 'create']);
+    Route::post('/categoria', [CategoriaController::class, 'create']);
     Route::get('/categorias/{id}', [CategoriaController::class, 'readById']);
     Route::delete('/categorias/{id}', [CategoriaController::class, 'delete']);
     Route::put('/categorias/{id}', [CategoriaController::class, 'edit']);
@@ -32,5 +25,5 @@ Route::prefix('crud')->group(function() {
     Route::post('/filmes', [FilmeController::class, 'create']);
     Route::get('/filmes/{id}', [FilmeController::class, 'readById']);
     Route::delete('/filmes/{id}', [FilmeController::class, 'delete']);
-    Route::put('/filmes/{id}', [FilmeController::class, 'edit']);
+    Route::post('/filmes/edit/{id}', [FilmeController::class, 'edit']);
 });

@@ -22,6 +22,7 @@ function ModalAddFilme({ show, onHide }) {
 		'titulo': '',
 		'sinopse': '',
 		'idioma': '',
+		'duracao': 200,
 		'categoria': 0,
 		'ano': 0
 	})
@@ -35,7 +36,7 @@ function ModalAddFilme({ show, onHide }) {
 
 	function handleSubmit(event) {
 		event.preventDefault()
-		axios.post('http://localhost:8000/api/crud/filme', filmeData, {
+		axios.post('http://localhost:8000/api/crud/filmes', filmeData, {
 		})
 			.then(() => {
 				localStorage.setItem('msg', "Filme cadastrado com sucesso")

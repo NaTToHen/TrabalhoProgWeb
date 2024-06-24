@@ -35,7 +35,7 @@ function PaginaCategoria() {
 
 	function handleSave(event) {
 		event.preventDefault()
-		axios.put('http://localhost:8000/api/crud/categoria', categoriaData, {})
+		axios.put('http://localhost:8000/api/crud/categorias/' + id , categoriaData, {})
 			.then(() => {
 				localStorage.setItem('msg', "Categoria cadastrada com sucesso")
 				navigate('/read')
