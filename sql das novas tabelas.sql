@@ -30,7 +30,7 @@ ADD
 ADD `updated_at` timestamp NULL DEFAULT NULL;
 
 CREATE VIEW lista_filmes AS
-SELECT filmes.id, filmes.titulo, filmes.sinopse, filmes.ano, filmes.duracao, filmes.idioma, categorias.nome FROM filmes
+SELECT filmes.id, filmes.titulo, filmes.sinopse, filmes.ano, filmes.duracao, filmes.idioma, categorias.nome as categoria FROM filmes
 INNER JOIN categorias
 ON filmes.id_categoria = categorias.id;
 

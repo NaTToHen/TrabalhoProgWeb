@@ -53,14 +53,14 @@ class CategoriaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 500, [], JSON_UNESCAPED_UNICODE);
+            return response()->json($validator->errors(), 334, [], JSON_UNESCAPED_UNICODE);
         } else {
             $categoria = Categoria::find($id);
             $categoria->nome = $request->nome;
             $categoria->descricao = $request->descricao;
             $categoria->save();
 
-            return response()->json("categoria editada com sucesso", 200, [], JSON_UNESCAPED_UNICODE);
+            return response()->json("categoria editada com sucesso", 201, [], JSON_UNESCAPED_UNICODE);
         }
     }
 

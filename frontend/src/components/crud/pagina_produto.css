@@ -1,0 +1,92 @@
+.containerInfo {
+  width: 65%;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.containerHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  gap: 32px;
+}
+
+.acoes {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #dddddd;
+}
+
+.fundoModal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000005e;
+}
+
+.containerDelete {
+  width: 45%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.containerHeader h1 {
+  color: #ad0000;
+  font-size: 25px;
+}
+
+.acoesModal {
+  display: flex;
+  gap: 20px;
+}
+
+.h1Delete {
+  width: 90%;
+  font-size: 23px;
+  text-align: center;
+}
+
+.acoesModal button {
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.btnCancelar {
+  background: #8d8d8d;
+}
+
+.btnConfirmar {
+  background: #ad0000;
+}
+
+.btnFormEdit {
+  border: none;
+   cursor: pointer;
+   background: #ad9c00;
+   width: 50%;
+   color: white;
+   padding: 12px;
+   margin-top: 30px;
+   font-size: 18px;
+   font-weight: bold;
+}
