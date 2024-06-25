@@ -1,5 +1,7 @@
 # Trabalho para matéria de programação web
 
+* Por favor alterar o banco de dados no arquivo .env para trabprogweb2
+
 Como utilizar:
 
 - Criar banco de dados:
