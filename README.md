@@ -1,16 +1,18 @@
-# testeAstrus
- 
-Crud para teste pratico da Astrus Digital
+# Trabalho para matéria de programação web
 
 Como utilizar:
 
-- Criar banco de dados: Executar o arquivo sql `bancoTesteAstrus.sql`
+- Criar banco de dados:
+  - Executar o arquivo sql `bancoTrabalhoFinal-att.sql`
+  - O banco de dados de ter o nome: `trabprogweb`
 
 - Inciar react:
-`cd /frontend` e `npm start`
+  - `cd /frontend` e `npm start`
+  - Caso ocorra algum erro execute o comando `npm update`
 
 - Iniciar servidor laravel:
-`cd /backend` e `php artisan serve`
+  - Casa você não tenha um compilador do PHP recomendo a instalação do Laragon : https://laragon.org/download/
+  - `cd /backend` e `php artisan serve`
 
 - Login e senha:
   - Usuario: admin
