@@ -25,6 +25,9 @@ function PaginaFilme() {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/crud/filmes/${id}`)
       .then((response) => setFilmeData(response.data))
+
+    axios.get('http://localhost:8000/api/crud/categorias')
+      .then(response => setCategorias(response.data))
   }, [])
 
   const [filmeData, setFilmeData] = useState({
@@ -55,19 +58,6 @@ function PaginaFilme() {
         navigate('/read')
       })
   }
-
-  useEffect(() => {
-    if (isEditing) {
-      axios.get('http://localhost:8000/api/crud/categorias')
-        .then(response => {
-          setCategorias(response.data)
-        })
-        .catch(error => {
-          return error
-        })
-    }
-
-  }, [isEditing])
 
   return (
     <>
@@ -113,7 +103,7 @@ function PaginaFilme() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="id_categoria">
             <Form.Label>Categoria</Form.Label>
-            <Form.Select aria-label="Default select example" name="id_categoria" defaultValue={filmeData.categoria} onChange={handleInput} disabled={!isEditing}>
+            <Form.Select aria-label="Default select example" name="id_categoria" value={filmeData.id_categoria} onChange={handleInput} disabled={!isEditing}>
               <option>Abri menu de seleção</option>
               {categorias.map(categoria => (
                 <option key={categoria.id} value={categoria.id}>
