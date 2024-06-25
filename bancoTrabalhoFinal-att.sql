@@ -16,8 +16,8 @@
 
 
 -- Copiando estrutura do banco de dados para testeastrus
-CREATE DATABASE IF NOT EXISTS `testeastrus` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `testeastrus`;
+CREATE DATABASE IF NOT EXISTS `trabprogweb2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `trabprogweb2`;
 
 -- Copiando estrutura para tabela testeastrus.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
@@ -27,16 +27,18 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela testeastrus.categorias: ~0 rows (aproximadamente)
-REPLACE INTO `categorias` (`id`, `nome`, `descricao`, `created_at`, `updated_at`) VALUES
+-- Copiando dados para a tabela testeastrus.categorias: ~8 rows (aproximadamente)
+INSERT INTO `categorias` (`id`, `nome`, `descricao`, `created_at`, `updated_at`) VALUES
 	(1, 'teste', 'teste', '2024-05-29 03:17:40', '2024-05-29 03:17:40'),
 	(2, 'Ação', 'Filmes que apresentam cenas de luta, perseguição e batalhas intensas.', '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
 	(3, 'Drama', 'Filmes que exploram conflitos emocionais e dilemas pessoais dos personagens.', '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
 	(4, 'Comédia', 'Filmes destinados a entreter e fazer o público rir, com situações humorísticas e diálogos espirituosos.', '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
 	(5, 'Ficção Científica', 'Filmes que exploram conceitos científicos especulativos, tecnologias avançadas e viagens espaciais.', '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(6, 'Terror', 'Filmes que visam assustar o público, com elementos de suspense, horror e criaturas sobrenaturais.', '2024-06-20 15:32:07', '2024-06-20 15:32:07');
+	(6, 'Terror', 'Filmes que visam assustar o público, com elementos de suspense, horror e criaturas sobrenaturais.', '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
+	(7, 'teste editado hjdjsh js dj sajdj', 'dsadsdadad', '2024-06-24 16:09:01', '2024-06-24 16:14:25'),
+	(8, 'teste', 'dewedwdwd', '2024-06-24 16:14:48', '2024-06-24 16:14:48');
 
 -- Copiando estrutura para tabela testeastrus.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
@@ -67,20 +69,21 @@ CREATE TABLE IF NOT EXISTS `filmes` (
   PRIMARY KEY (`id`),
   KEY `FK_FILME_CATEGORIA` (`id_categoria`),
   CONSTRAINT `FK_FILME_CATEGORIA` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela testeastrus.filmes: ~0 rows (aproximadamente)
-REPLACE INTO `filmes` (`id`, `titulo`, `sinopse`, `ano`, `duracao`, `idioma`, `id_categoria`, `created_at`, `updated_at`) VALUES
-	(11, 'Título do Filme 1', 'Sinopse do Filme 1', 2001, 120, 'Inglês', 1, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(12, 'Título do Filme 2', 'Sinopse do Filme 2', 1999, 90, 'Espanhol', 2, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(13, 'Título do Filme 3', 'Sinopse do Filme 3', 2010, 150, 'Francês', 3, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(14, 'Título do Filme 4', 'Sinopse do Filme 4', 2015, 110, 'Português', 4, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(15, 'Título do Filme 5', 'Sinopse do Filme 5', 2005, 130, 'Alemão', 1, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(16, 'Título do Filme 6', 'Sinopse do Filme 6', 2018, 100, 'Italiano', 2, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(17, 'Título do Filme 7', 'Sinopse do Filme 7', 2008, 140, 'Japonês', 3, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(18, 'Título do Filme 8', 'Sinopse do Filme 8', 2012, 125, 'Coreano', 4, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(19, 'Título do Filme 9', 'Sinopse do Filme 9', 2002, 95, 'Russo', 1, '2024-06-20 15:32:07', '2024-06-20 15:32:07'),
-	(20, 'Título do Filme 10', 'Sinopse do Filme 10', 2016, 115, 'Chinês', 2, '2024-06-20 15:32:07', '2024-06-20 15:32:07');
+-- Copiando dados para a tabela testeastrus.filmes: ~11 rows (aproximadamente)
+INSERT INTO `filmes` (`id`, `titulo`, `sinopse`, `ano`, `duracao`, `idioma`, `id_categoria`, `created_at`, `updated_at`) VALUES
+	(11, 'Título do Filme 1', 'Sinopse do Filme 1', 2001, 120, 'Inglês', 1, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(12, 'Título do Filme 2', 'Sinopse do Filme 2', 1999, 90, 'Espanhol', 2, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(13, 'Título hbdjh djasjdh ajd', 'Sinopse do Filme 3', 2010, 150, 'Francês', 3, '2024-06-20 18:32:07', '2024-06-24 19:06:21'),
+	(14, 'Título do Filme 4', 'Sinopse do Filme 4', 2015, 110, 'Português', 4, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(15, 'Título do Filme 5', 'Sinopse do Filme 5', 2005, 130, 'Alemão', 1, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(16, 'Título do Filme 6', 'Sinopse do Filme 6', 2018, 100, 'Italiano', 2, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(17, 'Título do Filme 7', 'Sinopse do Filme 7', 2008, 140, 'Japonês', 3, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(18, 'Título do Filme 8', 'Sinopse do Filme 8', 2012, 125, 'Coreano', 4, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(19, 'Título do Filme 9', 'Sinopse do Filme 9', 2002, 95, 'Russo', 1, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(20, 'Título do Filme 10', 'Sinopse do Filme 10', 2016, 115, 'Chinês', 2, '2024-06-20 18:32:07', '2024-06-20 18:32:07'),
+	(21, 'Título estranho', 'eqwdasda', 1234, 200, 'Espanhol', 2, '2024-06-24 19:26:40', '2024-06-24 19:27:46');
 
 -- Copiando estrutura para tabela testeastrus.fornecedoras
 CREATE TABLE IF NOT EXISTS `fornecedoras` (
@@ -95,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `fornecedoras` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela testeastrus.fornecedoras: ~5 rows (aproximadamente)
-REPLACE INTO `fornecedoras` (`id`, `nome`, `endereco`, `cidade`, `uf`, `created_at`, `updated_at`) VALUES
+INSERT INTO `fornecedoras` (`id`, `nome`, `endereco`, `cidade`, `uf`, `created_at`, `updated_at`) VALUES
 	(1, 'Nestle', 'Rua Euclides, 156', 'São Paulo', 'SP', '2023-12-15 15:55:18', '2023-12-15 15:55:18'),
 	(2, 'Garoto', 'Rua ABC, 369', 'Rio de Janeiro', 'RJ', '2023-12-15 15:59:52', '2023-12-15 15:59:52'),
 	(3, 'Lacta', 'Rua Terezinha, 1200', 'Belo Horizonte', 'MG', '2023-12-15 15:59:52', '2023-12-15 15:59:52'),
@@ -112,6 +115,13 @@ CREATE TABLE `info_produtos` (
 	`valor` DOUBLE(8,2) NOT NULL
 ) ENGINE=MyISAM;
 
+-- Copiando estrutura para view testeastrus.lista_filmes
+-- Criando tabela temporária para evitar erros de dependência de VIEW
+CREATE VIEW lista_filmes AS
+SELECT filmes.id, filmes.titulo, filmes.sinopse, filmes.ano, filmes.duracao, filmes.idioma, categorias.nome as categoria FROM filmes
+INNER JOIN categorias
+ON filmes.id_categoria = categorias.id;
+
 -- Copiando estrutura para tabela testeastrus.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -121,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela testeastrus.migrations: ~6 rows (aproximadamente)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(7, '2014_10_12_000000_create_users_table', 1),
 	(8, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 	(9, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -154,10 +164,10 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela testeastrus.personal_access_tokens: ~20 rows (aproximadamente)
-REPLACE INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+-- Copiando dados para a tabela testeastrus.personal_access_tokens: ~19 rows (aproximadamente)
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
 	(1, 'App\\Models\\User', 11, 'JWT', '9bc727030d8379104de053a4d5cfdec2f71fc776a9ba37f2cd334d5f59c5aaaa', '["*"]', NULL, NULL, '2023-12-15 15:38:11', '2023-12-15 15:38:11'),
 	(2, 'App\\Models\\User', 11, 'JWT', 'c246313a95d0b4008a93fc2de9f6cad332f459ce4ff916919249f6e495e26215', '["*"]', NULL, NULL, '2023-12-15 15:39:17', '2023-12-15 15:39:17'),
 	(3, 'App\\Models\\User', 11, 'JWT', '6a493d02e006a32eda07831822afb813d209fab71e5078e4b126b9f11f0aa114', '["*"]', NULL, NULL, '2023-12-15 15:42:03', '2023-12-15 15:42:03'),
@@ -178,7 +188,9 @@ REPLACE INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `
 	(18, 'App\\Models\\User', 11, 'JWT', 'd6823cd94eb51ed61fb96735ed37a357012ef3c5c632af5781818d6d1e95e71e', '["*"]', NULL, NULL, '2024-05-29 02:13:24', '2024-05-29 02:13:24'),
 	(19, 'App\\Models\\User', 11, 'JWT', '6e4dfb28240fa3217254cb39cc8db16e5daf1ed2b95188bec4eed3d7567fab47', '["*"]', NULL, NULL, '2024-05-29 02:16:26', '2024-05-29 02:16:26'),
 	(20, 'App\\Models\\User', 11, 'JWT', '250c06a939a6a1bb7ad695e47bf4dc34245bf96dc63ad012a9a8659222e9b508', '["*"]', NULL, NULL, '2024-05-29 02:18:01', '2024-05-29 02:18:01'),
-	(21, 'App\\Models\\User', 11, 'JWT', 'fd52a9dc99be33c7125fda737f4988f39d210cf282a0720b31a4b4f9a784aebe', '["*"]', NULL, NULL, '2024-06-20 18:05:54', '2024-06-20 18:05:54');
+	(21, 'App\\Models\\User', 11, 'JWT', 'fd52a9dc99be33c7125fda737f4988f39d210cf282a0720b31a4b4f9a784aebe', '["*"]', NULL, NULL, '2024-06-20 18:05:54', '2024-06-20 18:05:54'),
+	(22, 'App\\Models\\User', 11, 'JWT', '6ef10de4afc6077588cd3b18a47cf9e83a47513b8be620c326225c27148715a4', '["*"]', NULL, NULL, '2024-06-24 15:23:41', '2024-06-24 15:23:41'),
+	(23, 'App\\Models\\User', 11, 'JWT', '959cc2833e0fc11f47434540ac7d305f9c50abe45b28b60c9cbec7d6263425b1', '["*"]', NULL, NULL, '2024-06-24 15:38:10', '2024-06-24 15:38:10');
 
 -- Copiando estrutura para tabela testeastrus.produtos
 CREATE TABLE IF NOT EXISTS `produtos` (
@@ -195,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela testeastrus.produtos: ~8 rows (aproximadamente)
-REPLACE INTO `produtos` (`id`, `nome`, `descricao`, `valor`, `fk_fornecedora`, `created_at`, `updated_at`) VALUES
+INSERT INTO `produtos` (`id`, `nome`, `descricao`, `valor`, `fk_fornecedora`, `created_at`, `updated_at`) VALUES
 	(2, 'Nestlé meio amargo 45% cacau', 'Chocolate meio amargo, 100g', 6.99, 1, '2023-12-16 14:57:34', '2023-12-16 14:57:34'),
 	(3, 'Caixa de bombom Lacta', 'Caixa de bombom Lactea, edição favoritos com 15 chocolates', 15.90, 3, '2023-12-16 14:57:34', '2023-12-16 14:57:34'),
 	(4, 'Lindt caramelo', 'Chocolate suíço com lascas de caramelo, 150g', 15.99, 5, '2023-12-16 14:57:34', '2023-12-19 03:34:28'),
@@ -220,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela testeastrus.users: ~11 rows (aproximadamente)
-REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'Dexter Kirlin', 'aschroeder@example.net', '2023-12-15 15:36:47', '$2y$12$vjKvPPMlQg7nIcVqE5nJmeWvIR74/qq8hVqmN.4aPpdhHJYtpSpMG', 'yvDptTnNFU', '2023-12-15 15:36:47', '2023-12-15 15:36:47'),
 	(2, 'Mrs. Carlee Ullrich V', 'yessenia.lockman@example.net', '2023-12-15 15:36:47', '$2y$12$vjKvPPMlQg7nIcVqE5nJmeWvIR74/qq8hVqmN.4aPpdhHJYtpSpMG', 'B49IjGkwVx', '2023-12-15 15:36:48', '2023-12-15 15:36:48'),
 	(3, 'Prof. Carmel Botsford IV', 'lea.huels@example.org', '2023-12-15 15:36:47', '$2y$12$vjKvPPMlQg7nIcVqE5nJmeWvIR74/qq8hVqmN.4aPpdhHJYtpSpMG', 'xyCrnEClVq', '2023-12-15 15:36:48', '2023-12-15 15:36:48'),
@@ -239,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `valortotals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela testeastrus.valortotals: ~0 rows (aproximadamente)
-REPLACE INTO `valortotals` (`valorTotal`) VALUES
+INSERT INTO `valortotals` (`valorTotal`) VALUES
 	(98.85);
 
 -- Copiando estrutura para trigger testeastrus.create_valorTotal
